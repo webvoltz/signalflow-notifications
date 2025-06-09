@@ -77,9 +77,10 @@ const NotificationTable: React.FC<NotificationTableProps> = ({ data }) => {
     ];
 
 	// Use useMemo to sort data only when it changes
-	const sortedData = useMemo(() => {
-		return data.sort((a, b) => b.timestamp.seconds - a.timestamp.seconds);
-	}, [data]);
+        const sortedData = useMemo(
+            () => [...data].sort((a, b) => b.timestamp.seconds - a.timestamp.seconds),
+            [data]
+        );
 
     return (
         <>
