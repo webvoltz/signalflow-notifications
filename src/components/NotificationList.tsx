@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import type { FC } from 'react';
 import type { NotificationRecord, NotificationType } from '../types/notification';
 import { NOTIFICATION_TYPE_META, NOTIFICATION_TYPES } from '../utils/notificationTypeMeta';
+import { countNotificationsByStatus } from '../utils/notificationCounts';
 import NotificationCard from './NotificationCard';
 import EmptyState from './EmptyState';
 
@@ -36,14 +37,10 @@ const NotificationList: FC<NotificationListProps> = ({
     [notifications],
   );
 
-  const statusCounts = useMemo(
-    () => ({
-      all: sortedNotifications.length,
-      unread: sortedNotifications.filter((notification) => !notification.read).length,
-      read: sortedNotifications.filter((notification) => notification.read).length,
-    }),
-    [sortedNotifications],
-  );
+  const statusCounts = useMemo(() => {
+    const { total, unread, read } = countNotificationsByStatus(sortedNotifications);
+    return { all: total, unread, read };
+  }, [sortedNotifications]);
 
   const filteredNotifications = useMemo(
     () =>

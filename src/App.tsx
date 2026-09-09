@@ -11,6 +11,7 @@ import ToastViewport from './components/ToastViewport';
 import { useNotifications } from './hooks/useNotifications';
 import { useToasts } from './hooks/useToasts';
 import type { NotificationType } from './types/notification';
+import { countNotificationsByStatus } from './utils/notificationCounts';
 import './App.css';
 
 const AppContent: FC = () => {
@@ -26,14 +27,7 @@ const AppContent: FC = () => {
   const { toasts, showToast, dismissToast } = useToasts();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const counts = useMemo(
-    () => ({
-      total: notifications.length,
-      unread: notifications.filter((notification) => !notification.read).length,
-      read: notifications.filter((notification) => notification.read).length,
-    }),
-    [notifications],
-  );
+  const counts = useMemo(() => countNotificationsByStatus(notifications), [notifications]);
 
   const handleCreateNotification = useCallback(
     async (type: NotificationType, message: string): Promise<boolean> => {
