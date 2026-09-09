@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import ToastViewport from './ToastViewport';
+import ToastViewport from '../../components/ToastViewport';
 
 describe('ToastViewport', () => {
   it('renders each toast with the right role for its variant', () => {

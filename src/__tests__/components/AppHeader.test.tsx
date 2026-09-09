@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import AppHeader from './AppHeader';
+import AppHeader from '../../components/AppHeader';
 
 describe('AppHeader', () => {
   it('shows a friendly connected status and no badge when nothing is unread', () => {

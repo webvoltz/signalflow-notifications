@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { humanizeFirestoreError } from './humanizeFirestoreError';
+import { humanizeFirestoreError } from '../../utils/humanizeFirestoreError';
 
 describe('humanizeFirestoreError', () => {
   it('explains an invalid project id', () => {

@@ -1,7 +1,7 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import type { NotificationRecord } from '../types/notification';
-import type { NotificationsSnapshotMeta } from '../services/notificationService';
+import type { NotificationRecord } from '../../types/notification';
+import type { NotificationsSnapshotMeta } from '../../services/notificationService';
 
 type SubscribeCallback = (
   notifications: NotificationRecord[],
@@ -13,13 +13,13 @@ const subscribeMock = vi.fn<(onData: SubscribeCallback, onError: ErrorCallback) 
 const createNotificationMock = vi.fn<(type: string, message: string) => Promise<string>>();
 const markNotificationAsReadMock = vi.fn<(id: string) => Promise<void>>();
 
-vi.mock('../services/notificationService', () => ({
+vi.mock('../../services/notificationService', () => ({
   subscribeToNotifications: subscribeMock,
   createNotification: createNotificationMock,
   markNotificationAsRead: markNotificationAsReadMock,
 }));
 
-const { useNotifications } = await import('./useNotifications');
+const { useNotifications } = await import('../../hooks/useNotifications');
 
 const sampleNotification: NotificationRecord = {
   id: 'n1',

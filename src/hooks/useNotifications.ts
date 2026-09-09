@@ -70,6 +70,7 @@ export function useNotifications(): UseNotificationsResult {
   const retryConnection = useCallback(() => {
     setConnectionStatus('reconnecting');
     setConnectionError(null);
+    setLoading(true);
     setRetryToken((token) => token + 1);
   }, []);
 

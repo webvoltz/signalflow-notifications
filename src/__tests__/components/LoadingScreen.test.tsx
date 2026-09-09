@@ -1,6 +1,6 @@
 import { act, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import LoadingScreen from './LoadingScreen';
+import LoadingScreen from '../../components/LoadingScreen';
 
 describe('LoadingScreen', () => {
   it('identifies the app while the subscription connects', () => {

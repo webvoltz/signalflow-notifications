@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { StrictMode } from 'react';
 import { describe, expect, it, vi } from 'vitest';
-import CreateNotificationModal from './CreateNotificationModal';
+import CreateNotificationModal from '../../components/CreateNotificationModal';
 
 function renderModal(onSubmit = vi.fn<() => Promise<boolean>>()) {
   const onClose = vi.fn();

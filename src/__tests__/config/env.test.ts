@@ -22,7 +22,7 @@ async function loadValidEnvironment() {
   stubValidEnv();
   vi.resetModules();
 
-  return import('./env');
+  return import('../../config/env');
 }
 
 async function loadWithOverride(key: keyof typeof validEnv, value: string): Promise<Error> {
@@ -31,7 +31,7 @@ async function loadWithOverride(key: keyof typeof validEnv, value: string): Prom
   vi.resetModules();
 
   try {
-    await import('./env');
+    await import('../../config/env');
   } catch (error: unknown) {
     if (error instanceof Error) {
       return error;
