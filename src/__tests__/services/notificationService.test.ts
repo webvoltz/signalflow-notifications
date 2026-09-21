@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import type { NotificationRecord } from '../types/notification';
-import type { NotificationsSnapshotMeta } from './notificationService';
+import type { NotificationRecord } from '../../types/notification';
+import type { NotificationsSnapshotMeta } from '../../services/notificationService';
 
 class FakeTimestamp {
   constructor(private readonly millis: number) {}
@@ -44,12 +44,12 @@ vi.mock('firebase/firestore', () => ({
   Timestamp: FakeTimestamp,
 }));
 
-vi.mock('../config/firebase', () => ({
+vi.mock('../../config/firebase', () => ({
   firestore: {},
 }));
 
 const { createNotification, markNotificationAsRead, subscribeToNotifications } =
-  await import('./notificationService');
+  await import('../../services/notificationService');
 
 beforeEach(() => {
   addDocMock.mockReset();

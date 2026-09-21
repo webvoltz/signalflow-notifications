@@ -43,9 +43,15 @@ export function formatRelativeTime(epochMillis: number, now: number = Date.now()
     };
   }
 
-  if (diffMs < 2 * DAY_MS) {
+  if (isYesterday(epochMillis, now)) {
     return { label: 'Yesterday', fullDate, isValid: true };
   }
 
   return { label: fullDate, fullDate, isValid: true };
+}
+
+function isYesterday(epochMillis: number, now: number): boolean {
+  const startOfDay = (ms: number) => new Date(ms).setHours(0, 0, 0, 0);
+  const dayDiff = Math.round((startOfDay(now) - startOfDay(epochMillis)) / DAY_MS);
+  return dayDiff === 1;
 }

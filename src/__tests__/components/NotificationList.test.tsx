@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import type { NotificationRecord } from '../types/notification';
-import NotificationList from './NotificationList';
+import type { NotificationRecord } from '../../types/notification';
+import NotificationList from '../../components/NotificationList';
 
 const notifications: NotificationRecord[] = [
   { id: 'older', type: 'info', message: 'Older message', read: true, createdAt: 1 },

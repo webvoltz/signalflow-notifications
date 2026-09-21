@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import ConfigErrorScreen from './ConfigErrorScreen';
+import ConfigErrorScreen from '../../components/ConfigErrorScreen';
 
 describe('ConfigErrorScreen', () => {
   it('shows the failure message and how to fix it', () => {

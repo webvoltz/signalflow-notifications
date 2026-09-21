@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import type { NotificationRecord } from '../types/notification';
-import NotificationCard from './NotificationCard';
+import type { NotificationRecord } from '../../types/notification';
+import NotificationCard from '../../components/NotificationCard';
 
 const unreadNotification: NotificationRecord = {
   id: 'n1',

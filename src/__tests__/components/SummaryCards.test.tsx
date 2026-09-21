@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import SummaryCards from './SummaryCards';
+import SummaryCards from '../../components/SummaryCards';
 
 describe('SummaryCards', () => {
   it('shows total, unread, and read counts', () => {

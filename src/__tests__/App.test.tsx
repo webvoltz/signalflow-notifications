@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import App from './App';
+import App from '../App';
 
 interface FakeDocSnapshot {
   id: string;
@@ -22,7 +22,7 @@ const onSnapshotMock =
 let latestSnapshotCallback: SnapshotCallback | undefined;
 let latestErrorCallback: ErrorCallback | undefined;
 
-vi.mock('./config/firebase', () => ({
+vi.mock('../config/firebase', () => ({
   firestore: {},
 }));
 

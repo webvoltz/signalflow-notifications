@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import EmptyState from './EmptyState';
+import EmptyState from '../../components/EmptyState';
 
 describe('EmptyState', () => {
   it('invites the user to create a notification', () => {
